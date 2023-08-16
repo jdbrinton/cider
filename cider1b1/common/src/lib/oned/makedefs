@@ -1,0 +1,28 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= oneadmit.c oneaval.c onecond.c onecont.c onedest.c \
+		  onedopng.c onefreez.c onemesh.c onepoiss.c oneprint.c \
+		  oneproj.c oneread.c onesetup.c onesolve.c 
+
+COBJS		= oneadmit.o oneaval.o onecond.o onecont.o onedest.o \
+		  onedopng.o onefreez.o onemesh.o onepoiss.o oneprint.o \
+		  oneproj.o oneread.o onesetup.o onesolve.o 
+
+LIBRARY		= oned
+LIB_TARGET	= $(OBJLIB_DIR)/$(LIBRARY).a
+oneadmit.o: oneadmit.c
+oneaval.o: oneaval.c
+onecond.o: onecond.c
+onecont.o: onecont.c
+onedest.o: onedest.c
+onedopng.o: onedopng.c
+onefreez.o: onefreez.c
+onemesh.o: onemesh.c
+onepoiss.o: onepoiss.c
+oneprint.o: oneprint.c
+oneproj.o: oneproj.c
+oneread.o: oneread.c
+onesetup.o: onesetup.c
+onesolve.o: onesolve.c

@@ -1,0 +1,53 @@
+*** /users/gates/dspicelib/../include/optdefs.h	Thu Mar 18 13:05:30 1993
+--- /users/gates/sim/spice/common/src/include/optdefs.h	Mon Mar 15 17:25:48 1993
+***************
+*** 19,32 ****
+      int STATaccepted;   /* number of timepoints accepted */
+      int STATrejected;   /* number of timepoints rejected */
+  
+!     double STATtotAnalTime;     /* total time for analysis */
+!     double STATtranTime;    /* transient analysis time */
+!     double STATloadTime;    /* time spent in device loading */
+!     double STATdecompTime;  /* total time spent in LU decomposition */
+!     double STATsolveTime;   /* total time spent in F-B subst. */
+!     double STATreorderTime; /* total time spent reordering */
+      double STATtranDecompTime;  /* time spent in transient LU decomposition */
+!     double STATtranSolveTime;   /* time spent in transient F-B Subst. */
+  
+  } STATistics;
+  
+--- 19,38 ----
+      int STATaccepted;   /* number of timepoints accepted */
+      int STATrejected;   /* number of timepoints rejected */
+  
+!     double STATtotAnalTime;     /* total time for all analysis */
+!     double STATloadTime;        /* total time spent in device loading */
+!     double STATdecompTime;      /* total time spent in LU decomposition */
+!     double STATsolveTime;       /* total time spent in F-B subst. */
+!     double STATreorderTime;     /* total time spent reordering */
+!     double STATtranTime;        /* transient analysis time */
+      double STATtranDecompTime;  /* time spent in transient LU decomposition */
+!     double STATtranSolveTime;   /* time spent in transient F-B subst. */
+!     double STATtranLoadTime;    /* time spent in transient device loading */
+!     double STATtranTruncTime;   /* time spent calculating LTE and new step */
+!     double STATacTime;          /* AC analysis time */
+!     double STATacDecompTime;    /* time spent in AC LU decomposition */
+!     double STATacSolveTime;     /* time spent in AC F-B subst. */
+!     double STATacLoadTime;      /* time spent in AC device loading */
+  
+  } STATistics;
+  
+***************
+*** 76,80 ****
+--- 82,92 ----
+  #define OPT_TRYTOCOMPACT 43
+  #define OPT_BADMOS3 44
+  #define OPT_KEEPOPINFO 45
++ #define OPT_TRANLOAD 46
++ #define OPT_TRANTRUNC 47
++ #define OPT_ACTIME 48
++ #define OPT_ACLOAD 49
++ #define OPT_ACDECOMP 50
++ #define OPT_ACSOLVE 51
+  
+  #endif /*OPT*/

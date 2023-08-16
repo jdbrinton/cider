@@ -1,0 +1,44 @@
+.TH CIDER 1CAD "29 APRIL 1991"
+.SH NAME
+CIDER \- A Mixed-Level Circuit and Device Simulator
+.SH SYNOPSIS
+.B cider 
+\fB-r \fIrawfile\fB < \fIcircuitfile\fP
+.SH DESCRIPTION
+.PP
+CIDER needs a SPICE-like input deck describing the connectivity 
+of the circuit under simulation. It can be executed by issuing the 
+command
+\fIcider -r rawfile < cktfile\fR, where \fIcktfile\fR specifies 
+the file name of the CIDER input deck and \fIrawfile\fP is the
+name of the file to which the raw output data has to be sent.
+.LP
+.SH COMPILING CIDER
+.PP
+The distribution tape includes all the files necessary to compile 
+CIDER version 1a.1. CIDER is written in the portable C 
+language. It has been compiled under the DECstation 3100/Ultrix 4.1 system.
+Several files are included in the distribution to aid the compilation.
+.PP
+The subdirectory \fIspice3\fR contains the SPICE3 source code
+to which CIDER is linked. The file named \fIMakefile\fR is 
+a UNIX shell script which may be invoked by typing the command: 
+\fImake\fR. The invocation of this command will result in the 
+generation of the object files and the 
+executable file \fIcider\fR is created in the \fIexamples\fP subdirectory. 
+.SH EXAMPLES
+.PP
+Eight examples are provided in the subdirectory \fIexamples\fR.
+.PP
+.SH SEE ALSO
+spice(1), nutmeg(1), SPICE3 User's Guide, CIDER User's Guide
+.LP
+Kartikeya Mayaram, "\fICODECS: A Mixed-Level Circuit and Device Simulator\fR,"
+UCB/ERL Memo No. M88/71, November 1988.
+.SH AUTHORS
+Kartikeya Mayaram,
+David Gates
+.SH BUGS
+.PP
+Mail all bugs, along with the circuit, and 
+complaints to cider-bugs@ic.Berkeley.EDU

@@ -1,0 +1,11 @@
+# DECstation MIPS based system
+RANLIB		= ar ts$(ARLOCAL)
+#
+#	For Ultrix 4.2 you want -O0, for 4.1 you want -g
+#	(-O gives a runtime error under 4.1, I don't recall for 4.2)
+#	For Ultrix 4.3, one file, 'cp/output.c', crashes the assembler
+#	during optimization.  Suggested procedure is to compile with -O
+#	on first pass. Recompile just the one file with -g,
+#	then link with optimization turned back on.
+CC_OPT_SAFE	= -O0
+ARLOCAL		=

@@ -1,0 +1,134 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+#
+# Standard definitions.  It occurs to me that too much has been left in.
+
+SHELL		= /bin/sh
+PATH_SEP	= /
+PS		= /
+REVISION	=
+VERSION		= 1b1
+VERSION_SPICE	= 3f5
+VERSION_REVISION= $(VERSION)$(REVISION)
+NOTICE		=
+TOP		= /projects/cider/cider$(VERSION)
+TOP_SPICE	= $(TOP2)/spice
+OBJECTIVE	= cider
+SYS_DIR		= $(TOP1)/$(SYSTEM)
+EXEC_DIR	= $(SYS_DIR)/bin
+OBJ_TOP		= $(SYS_DIR)/obj
+OBJLIB_DIR	= $(OBJ_TOP)/lib
+OBJLIB_SPICE_DIR= $(TOP_SPICE)/$(SYSTEM)/obj/lib
+TAGS_DIR	= $(ABS_TOP)/src/lib
+CTAGS_FILE	= $(TAGS_DIR)/tags
+ETAGS_FILE	= $(TAGS_DIR)/TAGS
+
+CONF_CC		= $(SCRAP_DIR)/$(OBJECTIVE)-cc
+CONF_LD		= $(SCRAP_DIR)/$(OBJECTIVE)-ld
+CONF_XCC	= $(SCRAP_DIR)/$(OBJECTIVE)-cx
+CONF_CIDER	= $(SCRAP_DIR)/$(OBJECTIVE)
+SCRAP_DIR	= $(SYS_DIR)/tmp
+SYSCONF_DIR	= $(SCRAP_DIR)
+SYS_CONF	= $(SYSCONF_DIR)
+
+TCGMSG_DIR	= $(TOP2)/tcgmsg/$(SYSTEM)
+LIBTCGMSG	=
+
+DATALIB_DIR	= $(TOP0)/lib
+INCLUDE_DIR	= $(DIST_DIR)/src/include
+INCLUDE_SPICE_DIR= $(TOP_SPICE)/common/src/include
+DIST_DIR	= $(TOP0)
+UTIL_DIR	= $(DIST_DIR)/util
+CONF_DIR	= $(DIST_DIR)/conf
+SKELETON_DIR	= $(UTIL_DIR)/skeleton
+CLEANASYOUGO	= true
+ARFLAGS		= r$(ARLOCAL)
+ALL_PURPOSE	= default_all
+PRE_PURPOSE	= pre_$(PURPOSE)
+PURPOSE		= all
+INCLUDE		= -I$(INCLUDE_DIR) -I$(INCLUDE_SPICE_DIR) -I$(TCGMSG_DIR)/include
+CC		= cc
+
+CIDER_TUNE	= -DBUG_ADDR=\"$(BUG_ADDR)\" -DHELP_DIR=\"$(HELP_DIR)\"	      \
+		  -DSCRIPT_DIR=\"$(SCRIPT_DIR)\" -DNEWS_FILE=\"$(NEWS_FILE)\" \
+		  -DDEFAULT_MFBCAP=\"$(DEFAULT_MFBCAP)\"		      \
+		  -DCIDER_HOST=\"$(CIDER_HOST)\"			      \
+		  -DCIDER_PATH=\"$(CIDER_PATH)\"			      \
+		  -DCIDERD_LOG=\"$(CIDERD_LOG)\"			      \
+		  -DDEFAULT_EDITOR=\"$(DEFAULT_EDITOR)\"		      \
+		  -DASCII_RAWFILE=$(ASCII_RAWFILE)			      \
+		  -DOPT_CHAR=\'$(OPT_CHAR)\'				      \
+		  -DBUILD_DATE=\""${BUILD_DATE}"\"			      \
+		  -DNOTICE=\""$(NOTICE)"\"				      \
+		  -DVERSION=\""${VERSION}"\"				      \
+		  -DDEVICES=\""${DEVICES}"\"				      \
+		  -DNUDEVICES=\""${NUDEVICES}"\"			      \
+		  -DANALYSES=\""${ANALYSES}"\"
+
+CIDER_TARGET    = $(CIDER_EXEC)
+
+CIDER_EXEC	= cider
+
+AR		= ar
+
+SPARSELIB	= sparse
+
+LIBRARIES	= dev input oned twod spiceitf support
+
+CFLAGS		= $(REAL_CC_OPT) $(SYS_CFLAGS)
+
+LIBRARY_HACK	= $(OBJLIB_DIR)/$(LIBRARY).a
+
+INSTALL_TARGETS	=
+ALL_INSTALL_DIRS=
+INSTALL_DIRS	=
+
+UPDATE_TARGET	=
+
+MSC_RESPONSE_FILE = response.lib
+MSC_EXEC_FILE	= msc51.bat
+
+PARALLEL	=
+NPARALLEL	= 1
+MAKE		= /bin/make
+
+GETOPTLIB	=
+
+S_CIDER_DIR	= $(CIDER_DIR)
+S_CIDER_EXEC_DIR= $(CIDER_EXEC_DIR)
+S_CIDER_LIB_DIR	= $(CIDER_LIB_DIR)
+
+TUNEFILE	= tune
+MFBLIB		= mfb
+
+INSTALL_SUBDIRS	= $(SUBDIRS)
+MSC_SUBDIRS	= $(SUBDIRS)
+MAKE_SUBDIRS	= $(SUBDIRS)
+MSC_ERRS	= msc.out
+
+DEV_SUBDIRS	= $(DEVICES)
+NUDEV_SUBDIRS	= $(NUDEVICES)
+
+ALL_DEVICES	= asrc bjt bsim1 bsim2 cap cccs ccvs csw dio ind isrc jfet   \
+		  ltra mes mos1 mos2 mos3 mos6 res sw tra urc vccs vcvs vsrc \
+		  numd numd2 nbjt nbjt2 numos
+
+ASM_HACK	=
+
+SRC_TOP		= $(DIST_DIR)/src/
+DEV_TOP		= $(SRC_TOP)/lib/dev/
+DEV_TOP_SPICE	= $(TOP_SPICE)/common/src/lib/dev/
+SRC_DIR		= $(SRC_TOP)$(SUBDIR)
+OBJ_TOP		= $(SYS_DIR)/obj/
+OBJ_DIR		= $(OBJ_TOP)/$(SUBDIR)
+CURR_DIR	= $(DIST_DIR)/$(DIR)/$(SUBDIR)
+DISTLIB_DIR	= $(DIST_DIR)/lib
+OBJBIN_DIR	= $(OBJ_DIR)/bin
+OBJBIN_SPICE_DIR= $(TOP_SPICE)/$(SYSTEM)/obj/bin
+OUTPUT		=
+PARENT		=
+REAL_CC_OPT	= $(CC_OPT)
+CC_OPT_SAFE	= $(CC_OPT)
+MKDIR		= mkdir
+ARQ		= q

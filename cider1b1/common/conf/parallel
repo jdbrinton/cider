@@ -1,0 +1,5 @@
+# Groups of workstations in parallel
+SYS_CFLAGS	= -DPARALLEL_ARCH
+LIBTCGMSG	= $(TCGMSG_DIR)/lib/libtcgmsg.a
+BIN_PARALLEL		= qcider
+INSTALL_PARALLEL	= $(CIDER_EXEC_DIR)/qcider

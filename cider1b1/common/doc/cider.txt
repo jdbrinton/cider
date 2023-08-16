@@ -1,0 +1,258 @@
+
+
+
+
+
+
+CIDER
+
+9
+     CIDER is a mixed-level  circuit  and  device  simulator
+that  provides  a  direct link between technology parameters
+and circuit performance.  A mixed-level circuit  and  device
+simulator  can  provide  greater  simulation accuracy than a
+stand-alone  circuit  or  device  simulator  by  numerically
+modeling  the critical devices in a circuit.  Compact models
+can be used for noncritical devices.
+
+
+     CIDER couples the latest  version  of  SPICE3  (version
+3F.2) to an internal C-based device simulator, DSIM.  SPICE3
+provides circuit analyses, compact models for  semiconductor
+devices,  and  an interactive user interface.  DSIM provides
+accurate, one- and two-dimensional numerical  device  models
+based  on  the solution of Poisson's equation, and the elec-
+tron and hole  current-continuity  equations.   DSIM  incor-
+porates  many of the same basic physical models found in the
+the Stanford two-dimensional device simulator PISCES.  Input
+to CIDER consists of a SPICE-like description of the circuit
+and its compact models, and PISCES-like descriptions of  the
+structures  of  numerically  modeled  devices.  As a result,
+CIDER should seem familiar to designers  already  accustomed
+to  these  two  tools.   For  example, SPICE3F.2 input files
+should  run  without   modification,   producing   identical
+results.
+
+
+     CIDER is based on the mixed-level  circuit  and  device
+simulator  CODECS,  and  is  a replacement for this program.
+The basic algorithms of the two programs are the same.  Some
+of  the  differences  between CIDER and CODECS are described
+below.  The CIDER input format has greater  flexibility  and
+allows  increased  access to physical model parameters.  New
+physical models have  been  added  to  allow  simulation  of
+state-of-the-art  devices.   These  include transverse field
+mobility degradation important in scaled-down MOSFETs and  a
+polysilicon  model  for  poly-emitter  bipolar  transistors.
+Temperature dependence has been included over the range from
+-50C  to 150C.  The numerical models can be used to simulate
+all the basic types of semiconductor devices: resistors, MOS
+capacitors, diodes, BJTs, JFETs and MOSFETs.  BJTs and JFETs
+can be modeled with or without a substrate contact.  Support
+has been added for the management of device internal states.
+Post-processing of device states can be performed using  the
+NUTMEG user interface of SPICE3.  Previously computed states
+can be loaded into the program to provide  accurate  initial
+guesses  for  subsequent  analyses.  Finally, numerous small
+bugs have been discovered and fixed,  and  the  program  has
+been ported to a wider variety of computing platforms.
+
+9
+
+
+                      October 13, 1992
+
+
+
+
+
+                           - 2 -
+
+
+     Berkeley tradition calls for the naming of new versions
+of  programs  by affixing a (number, letter, number) triplet
+to the end of the program name.  Under  this  scheme,  CIDER
+should  instead be named CODECS2A.1.  However, tradition has
+been broken in this  case  because  major  incompatibilities
+exist  between  the two programs and because it was observed
+that the acronym CODECS is already used in the analog design
+community to refer to coder-decoder circuits.
+
+
+9Hardware/Operating System Requirements: The program has been
+run  successfully  under: (Ultrix 4, RISC), (SunOS 4, Sun4),
+(AIX 3, RS/6000), (UNIX SVR3, iPSC/860 node).  Compatibility
+with  other  computer systems has not been tested.  However,
+the program is expected to compile  on  most  machines  with
+UNIX,  a  C compiler and IEEE-754 floating point arithmetic.
+At least 8MB physical memory is recommended.
+9
+Versions Available: UNIX only, available Q1 1993
+9
+Distribution Media:  QIC-120,  QIC-150,  QIC-320,  8mm  (2.2
+gig), TK50 (DEC tape format), 9-track 1600 bpi, 9-track 6250
+bpi
+9
+Source Code: Yes
+9
+Object Code: No
+9
+Programming Language: C
+9
+Materials/Handling Fee: $150.00
+9
+Documentation included with the tape:
+
+1.   CIDER User's Guide.  Available separately for $5.00.
+9
+Additional Documentation:
+
+1.   K. Mayaram, _C_O_D_E_C_S: _A _M_i_x_e_d-_L_e_v_e_l  _C_i_r_c_u_i_t  _a_n_d  _D_e_v_i_c_e
+     _S_i_m_u_l_a_t_o_r,  UCB/ERL  M88/71,  November 1988.  Available
+     for $15.00.
+
+2.   D. Gates,
+      _A_n _I_n_v_e_r_s_i_o_n-_L_a_y_e_r _M_o_b_i_l_i_t_y _M_o_d_e_l _f_o_r _C_O_D_E_C_S,  UCB/ERL
+     M90/96, October 1990.  Available for $10.00.
+
+2.   D. Gates, _D_e_s_i_g_n-_O_r_i_e_n_t_e_d _M_i_x_e_d-_L_e_v_e_l _C_i_r_c_u_i_t _a_n_d  _D_e_v_-
+     _i_c_e _S_i_m_u_l_a_t_i_o_n, Forthcoming in late Spring 1993.
+9
+
+
+
+                      October 13, 1992
+
+
+
+
+
+                           - 3 -
+
+
+Foreign Distribution: Contact Software Distribution Office
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      October 13, 1992
+
+
+
+
+
+                           - 4 -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      October 13, 1992
+
+

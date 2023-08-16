@@ -1,0 +1,37 @@
+Directory: dev
+--------------
+This directory serves as a parallel to the device directory in the SPICE3
+distribution.  The 5 subdirectories correspond to the 5 device classes in
+CIDER:
+  numd:  2-terminal 1-dimensional
+  nbjt:  3-terminal 1-dimensional, special base contact
+  numd2: 2-terminal 1-dimensional
+  nbjt2: 2-terminal 1-dimensional
+  numos: 2-terminal 1-dimensional
+
+  The directory names have been retained for historical reasons and correspond
+to the names used in CODECS, the predecessor of CIDER.  However, except for
+the 1d BJT class, the device classes can support more than one device type.
+For example, the 2-terminal elements, although primarily intended for diodes,
+can also be be used to simulate resistors.  A new device type can be defined
+by doing the following:
+  1. Add it to the list of device types in the input/options.c file,
+     if it is not already there.
+  2. Add a macro constant name for the device, e.g. OPTN_IGBT
+     in include/optndefs.h.
+  3. Modify the appropriate ???load.c file in one of the subdirectories
+     to provide the correct initial junction voltages and voltage-limiting
+     scheme. (See numdload.c for a good example of the use of device type.)
+  4. Modify the ???temp.c file to properly account for the polarity of the
+     device.
+  5. Add any new junction voltage limiting routines to support/limit.c.
+  6. Add a case in support/devprint.c to print out the junction voltages
+     with intelligible names.
+Most of these steps are simply bookkeeping.  The hardest part is defining
+an acceptable voltage-limiting scheme.  Beware that no one has attempted
+to follow this outline in trying to add a new device.  If there are errors,
+please correct this file so that others won't have to duplicate your effort.
+
+  The filenames in the subdirectories have been shortened to comply with
+the requirements of MSDOS filenames.  However, CIDER has not yet been compiled
+for MSDOS, and so this is mostly a future compatibility issue.

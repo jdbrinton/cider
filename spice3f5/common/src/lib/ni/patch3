@@ -1,0 +1,80 @@
+diff -c ./niaciter.c /users/gates/sim/spice/common/src/lib/ni/niaciter.c
+*** ./niaciter.c	Thu Mar 18 13:04:33 1993
+--- /users/gates/sim/spice/common/src/lib/ni/niaciter.c	Mon Mar 15 16:57:52 1993
+***************
+*** 28,43 ****
+--- 28,49 ----
+      int error;
+      int ignore;
+      double *temp;
++     double startTime;
+  
+  retry:
+      ckt->CKTnoncon=0;
+  
++     startTime = SPfrontEnd->IFseconds();
+      error = CKTacLoad(ckt);
++     ckt->CKTstat->STATloadTime += SPfrontEnd->IFseconds()- startTime;
+      if(error) return(error);
+      
+      if(ckt->CKTniState & NIACSHOULDREORDER) {
++ 	startTime = SPfrontEnd->IFseconds();
+          error = SMPcReorder(ckt->CKTmatrix,ckt->CKTpivotAbsTol,
+                  ckt->CKTpivotRelTol,&ignore);
++ 	ckt->CKTstat->STATreorderTime +=
++ 		SPfrontEnd->IFseconds()- startTime;
+          ckt->CKTniState &= ~NIACSHOULDREORDER;
+          if(error != 0) {
+              /* either singular equations or no memory, in either case,
+***************
+*** 46,52 ****
+--- 52,61 ----
+              return(error);
+          }
+      } else {
++ 	startTime = SPfrontEnd->IFseconds();
+          error = SMPcLUfac(ckt->CKTmatrix,ckt->CKTpivotAbsTol);
++ 	ckt->CKTstat->STATdecompTime += 
++ 		SPfrontEnd->IFseconds()-startTime;
+          if(error != 0) {
+              if(error == E_SINGULAR) {
+                  /* the problem is that the matrix can't be solved with the
+***************
+*** 59,67 ****
+--- 68,78 ----
+              return(error); /* can't handle E_BADMATRIX, so let caller */
+          }
+      } 
++     startTime = SPfrontEnd->IFseconds();
+      SMPcSolve(ckt->CKTmatrix,ckt->CKTrhs, 
+              ckt->CKTirhs, ckt->CKTrhsSpare,
+              ckt->CKTirhsSpare);
++     ckt->CKTstat->STATsolveTime += SPfrontEnd->IFseconds() - startTime;
+  
+      *ckt->CKTrhs = 0;
+      *ckt->CKTrhsSpare = 0;
+***************
+*** 77,81 ****
+--- 88,93 ----
+      temp = ckt->CKTrhsOld;
+      ckt->CKTrhsOld = ckt->CKTrhs;
+      ckt->CKTrhs = temp;
++ 
+      return(OK);
+  }
+diff -c ./niiter.c /users/gates/sim/spice/common/src/lib/ni/niiter.c
+*** ./niiter.c	Tue Mar 30 14:04:58 1993
+--- /users/gates/sim/spice/common/src/lib/ni/niiter.c	Wed Oct 21 09:45:50 1992
+***************
+*** 185,193 ****
+              } else {
+                  ckt->CKTnoncon = 1;
+              }
+- #ifdef STEPDEBUG
+-             printf("noncon is %d\n",ckt->CKTnoncon);
+- #endif
+          }
+  
+          if(ckt->CKTmode & MODEINITFLOAT) {
+--- 185,190 ----
+Only in .: patch3

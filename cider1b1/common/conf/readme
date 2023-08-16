@@ -1,0 +1,10 @@
+The files in this directory are appropriately modified files taken from
+the SPICE3 configuration directory.  While SPICE3 has been compiled on these
+systems, CIDER has only been tested using the mips, sun4, and rs6000 
+configurations.  Earlier versions have also been tested using the ipsc script.
+CIDER may have problems with ANSI-compliant C compilers (incorrect/missing
+prototypes for example).  However the basic code is fairly portable, primarily
+due to the portability of the SPICE3 core.  The biggest portability headache
+is the use of the IEEE finite() function call to trap floating point overflows.
+Therefore unless your machine uses IEEE arithmetic, you may have difficulty
+porting the code.

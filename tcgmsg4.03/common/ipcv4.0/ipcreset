@@ -1,0 +1,6 @@
+
+
+
+# $Header: /home/harrison/c/tcgmsg/ipcv4.0/RCS/ipcreset,v 1.1 91/12/06 17:26:37 harrison Exp Locker: harrison $
+ipcrm `ipcs | awk '{if (($1 == "m") || ($1 == "s")) print sprintf("-%s %s",$1,$2) }'`
+ipcs

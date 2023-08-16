@@ -1,0 +1,13 @@
+Directory: spiceitf
+-------------------
+All files in this directory replace files of the same name in the SPICE3
+directories of the distribution.  With one exception (spbuild.c), these files
+augment the I/O facilities of SPICE3 in order to allow parsing of numerical
+device specifications, and to output information about devices (internal states
+and resource statistics).  The final file adds a function to the sparse matrix
+package used in debugging Jacobian matrices by the 1D simulator.
+
+The unused file, xmotif.cnu, contains an OSF/MOTIF implementation of the X11
+graphics interface found in the SPICE directories as fte/x11.c.  It has not
+been tested recently, and is included here only to aid ports to that
+environment.

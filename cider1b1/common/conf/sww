@@ -1,0 +1,3 @@
+# Definitions for the UC Berkeley CAD group machines
+X_DIR		= /usr/sww/X11
+BUG_ADDR 	= spice-bugs@Berkeley.EDU

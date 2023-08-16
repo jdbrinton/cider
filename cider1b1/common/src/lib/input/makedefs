@@ -1,0 +1,39 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= bdryset.c boundary.c cards.c contact.c contset.c domain.c \
+		  domnset.c doping.c dopset.c elctset.c electrod.c material.c \
+		  matlset.c mesh.c meshset.c method.c mobility.c mobset.c \
+		  models.c modlset.c options.c outpset.c output.c 
+
+COBJS		= bdryset.o boundary.o cards.o contact.o contset.o domain.o \
+		  domnset.o doping.o dopset.o elctset.o electrod.o material.o \
+		  matlset.o mesh.o meshset.o method.o mobility.o mobset.o \
+		  models.o modlset.o options.o outpset.o output.o 
+
+LIBRARY		= input
+LIB_TARGET	= $(OBJLIB_DIR)/$(LIBRARY).a
+bdryset.o: bdryset.c
+boundary.o: boundary.c
+cards.o: cards.c
+contact.o: contact.c
+contset.o: contset.c
+domain.o: domain.c
+domnset.o: domnset.c
+doping.o: doping.c
+dopset.o: dopset.c
+elctset.o: elctset.c
+electrod.o: electrod.c
+material.o: material.c
+matlset.o: matlset.c
+mesh.o: mesh.c
+meshset.o: meshset.c
+method.o: method.c
+mobility.o: mobility.c
+mobset.o: mobset.c
+models.o: models.c
+modlset.o: modlset.c
+options.o: options.c
+outpset.o: outpset.c
+output.o: output.c

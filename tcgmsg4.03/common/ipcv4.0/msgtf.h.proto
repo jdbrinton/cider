@@ -1,0 +1,9 @@
+C
+C  This defines bit masks that can be OR'ed with user types (1-32767)
+C  to indicate the nature of the data to the message passing system
+C
+IF IPSC DELTA
+      PARAMETER (MSGDBL=0, MSGINT=0, MSGCHR=0)
+ELSE
+      PARAMETER (MSGDBL=65536, MSGINT=131072, MSGCHR=262144)
+ENDIF

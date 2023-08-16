@@ -1,0 +1,23 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= cktdump.c inp2d.c inp2m.c inp2q.c inpcom.c inpdomod.c \
+		  inpgmod.c inpgstr.c math.c resource.c spbuild.c 
+
+COBJS		= cktdump.o inp2d.o inp2m.o inp2q.o inpcom.o inpdomod.o \
+		  inpgmod.o inpgstr.o math.o resource.o spbuild.o 
+
+LIBRARY		= spiceitf
+LIB_TARGET	= $(OBJLIB_DIR)/$(LIBRARY).a
+cktdump.o: cktdump.c
+inp2d.o: inp2d.c
+inp2m.o: inp2m.c
+inp2q.o: inp2q.c
+inpcom.o: inpcom.c
+inpdomod.o: inpdomod.c
+inpgmod.o: inpgmod.c
+inpgstr.o: inpgstr.c
+math.o: math.c
+resource.o: resource.c
+spbuild.o: spbuild.c

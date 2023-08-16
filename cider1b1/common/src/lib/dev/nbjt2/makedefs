@@ -1,0 +1,32 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= nbt2.c nbt2acld.c nbt2ask.c nbt2del.c nbt2dest.c nbt2dump.c \
+		  nbt2load.c nbt2mdel.c nbt2mpar.c nbt2parm.c \
+		  nbt2pzld.c nbt2set.c nbt2temp.c nbt2trun.c 
+
+COBJS		= nbt2.o nbt2acld.o nbt2ask.o nbt2del.o nbt2dest.o nbt2dump.o \
+		  nbt2load.o nbt2mdel.o nbt2mpar.o nbt2parm.o \
+		  nbt2pzld.o nbt2set.o nbt2temp.o nbt2trun.o 
+
+MODULE		= nbjt2
+LIBRARY		= dev
+MODULE_TARGET	= $(OBJLIB_DIR)/$(MODULE)
+
+NUMBER		= 3
+
+nbt2.o: nbt2.c
+nbt2acld.o: nbt2acld.c
+nbt2ask.o: nbt2ask.c
+nbt2del.o: nbt2del.c
+nbt2dest.o: nbt2dest.c
+nbt2dump.o: nbt2dump.c
+nbt2load.o: nbt2load.c
+nbt2mdel.o: nbt2mdel.c
+nbt2mpar.o: nbt2mpar.c
+nbt2parm.o: nbt2parm.c
+nbt2pzld.o: nbt2pzld.c
+nbt2set.o: nbt2set.c
+nbt2temp.o: nbt2temp.c
+nbt2trun.o: nbt2trun.c

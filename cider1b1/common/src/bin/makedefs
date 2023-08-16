@@ -1,0 +1,20 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= cider.c
+
+COBJS		=
+
+BIN_TARGETS     = cider $(BIN_PARALLEL)
+
+INSTALL_TARGETS	= $(CIDER_EXEC_DIR)/cider $(INSTALL_PARALLEL)
+
+SPECIAL_CLEAN	= tune*.c conf.c
+
+INCLUDE		= -I$(INCLUDE_DIR) -I$(INCLUDE_SPICE_DIR) \
+		-I$(DEV_TOP) -I$(DEV_TOP_SPICE) -I$(TCGMSG_DIR)/include
+
+cider.o: main.c
+conf.o: conf.c
+$(TUNEFILE).o: $(TUNEFILE).c

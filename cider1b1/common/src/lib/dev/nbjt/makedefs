@@ -1,0 +1,32 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= nbjt.c nbjtacld.c nbjtask.c nbjtdel.c nbjtdest.c nbjtdump.c \
+		  nbjtload.c nbjtmdel.c nbjtmpar.c nbjtparm.c \
+		  nbjtpzld.c nbjtset.c nbjttemp.c nbjttrun.c 
+
+COBJS		= nbjt.o nbjtacld.o nbjtask.o nbjtdel.o nbjtdest.o nbjtdump.o \
+		  nbjtload.o nbjtmdel.o nbjtmpar.o nbjtparm.o \
+		  nbjtpzld.o nbjtset.o nbjttemp.o nbjttrun.o 
+
+MODULE		= nbjt
+LIBRARY		= dev
+MODULE_TARGET	= $(OBJLIB_DIR)/$(MODULE)
+
+NUMBER		= dev
+
+nbjt.o: nbjt.c
+nbjtacld.o: nbjtacld.c
+nbjtask.o: nbjtask.c
+nbjtdel.o: nbjtdel.c
+nbjtdest.o: nbjtdest.c
+nbjtdump.o: nbjtdump.c
+nbjtload.o: nbjtload.c
+nbjtmdel.o: nbjtmdel.c
+nbjtmpar.o: nbjtmpar.c
+nbjtparm.o: nbjtparm.c
+nbjtpzld.o: nbjtpzld.c
+nbjtset.o: nbjtset.c
+nbjttemp.o: nbjttemp.c
+nbjttrun.o: nbjttrun.c

@@ -1,0 +1,80 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+ALL_INSTALL_DIRS = $(CIDER_EXEC_DIR)
+INSTALL_SPECIAL = directories
+
+MSC: $(MSC_SYNTH)
+
+$(CIDER_EXEC_DIR)/cider: cider
+	rm -f $@
+	cp $? $@
+
+$(CIDER_EXEC_DIR)/qcider: qcider
+	rm -f $@
+	cp $? $@
+
+$(CIDER_EXEC_DIR):
+	mkdir $(CIDER_EXEC_DIR)
+
+cider.o: main.c $(SYS_CONF)/$(OBJECTIVE)-cc
+	$(CC) -c $(CFLAGS) $(INCLUDE) -DSIMULATOR $(SRC_DIR)/main.c $(ASM_HACK)
+	mv -f main.o $@
+
+conf.o: conf.c
+	$(CC) $(CFLAGS) $(INCLUDE) -c conf.c $(ASM_HACK)
+
+$(TUNEFILE).o: $(TUNEFILE).c
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(TUNEFILE).c $(ASM_HACK)
+
+conf.c: config.c $(SYS_CONF)/$(OBJECTIVE)
+	@echo Creating "$@":
+	$(UTIL_DIR)/mkvers.sh "$(DEVICES) $(NUDEVICES)" "$(ANALYSES)" \
+		"$(VERSION)" "$(NOTICE)" $(IAMMSC) > $@
+	cat $(SRC_DIR)/config.c >> $@
+
+$(TUNEFILE).c: $(SYS_CONF)/$(OBJECTIVE)
+	@echo "Creating $(TUNEFILE).c";					      \
+	{								      \
+	echo   'char	*Spice_Exec_Dir	= "$(S_CIDER_EXEC_DIR)";';	      \
+	echo   'char	*Spice_Lib_Dir	= "$(S_CIDER_LIB_DIR)";';	      \
+	echo   "char	Spice_OptChar	= '$(OPT_CHAR)';";		      \
+	echo   'char	*Def_Editor	= "$(DEFAULT_EDITOR)";';	      \
+	echo   'int	AsciiRawFile	= $(ASCII_RAWFILE);';		      \
+	echo   '';							      \
+	echo   'char	*Bug_Addr	= "$(BUG_ADDR)";';		      \
+	echo   'char	*Spice_Host	= "$(CIDER_HOST)";';		      \
+	echo   'char	*Spiced_Log	= "$(CIDERD_LOG)";';		      \
+	} > $@
+
+LIB	= $(OBJLIB_SPICE_DIR)
+NULIB	= $(OBJLIB_DIR)
+
+LIBBEFS	= $(LIB)/fte.a
+LIBAFTS	= $(LIB)/dev.a $(LIB)/ckt.a $(LIB)/cp.a $(LIB)/hlp.a \
+	$(LIB)/inp.a $(LIB)/mfb.a $(LIB)/ni.a $(LIB)/$(SPARSELIB).a \
+	$(LIB)/misc.a
+OBJCDR	= $(NULIB)/spiceitf/cktdump.o $(NULIB)/spiceitf/inp2d.o \
+	$(NULIB)/spiceitf/inp2m.o $(NULIB)/spiceitf/inp2q.o \
+	$(NULIB)/spiceitf/inpdomod.o $(NULIB)/spiceitf/inpgmod.o \
+	$(NULIB)/spiceitf/inpgstr.o $(NULIB)/spiceitf/inpcom.o \
+	$(NULIB)/spiceitf/resource.o $(NULIB)/spiceitf/math.o \
+	$(NULIB)/spiceitf/spbuild.o
+LIBCDR	= $(NULIB)/dev.a $(NULIB)/input.a $(NULIB)/oned.a $(NULIB)/twod.a \
+	$(NULIB)/support.a
+cider: cider.o conf.o $(TUNEFILE).o $(OBJCDR) $(LIBBEFS) $(LIBCDR) $(LIBAFTS) \
+	  $(SYS_CONF)/$(OBJECTIVE)-ld
+	-@rm -f cider
+	$(CC) -o $@ cider.o conf.o $(TUNEFILE).o $(OBJCDR) \
+	   $(LIBBEFS) $(LIBCDR) $(LIBAFTS) $(LIBTCGMSG) $(LIBX) $(LDFLAGS)
+
+qcider: qcider.tpl $(SYS_CONF)/$(OBJECTIVE)
+	-@rm -f $@
+	@echo "Creating $@";    \
+	{			\
+	echo   '#!/bin/csh -f';					\
+	echo   'set executable =  "$(S_CIDER_EXEC_DIR)/cider"';	\
+	cat    $(SRC_DIR)/$@.tpl;				\
+	} > $@
+	@chmod +x $@

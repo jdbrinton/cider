@@ -1,0 +1,32 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= nud2.c nud2acld.c nud2ask.c nud2del.c nud2dest.c nud2dump.c \
+		  nud2load.c nud2mdel.c nud2mpar.c nud2parm.c \
+		  nud2pzld.c nud2set.c nud2temp.c nud2trun.c 
+
+COBJS		= nud2.o nud2acld.o nud2ask.o nud2del.o nud2dest.o nud2dump.o \
+		  nud2load.o nud2mdel.o nud2mpar.o nud2parm.o \
+		  nud2pzld.o nud2set.o nud2temp.o nud2trun.o 
+
+MODULE		= nbjt2
+LIBRARY		= dev
+MODULE_TARGET	= $(OBJLIB_DIR)/$(MODULE)
+
+NUMBER		= 3
+
+nud2.o: nud2.c
+nud2acld.o: nud2acld.c
+nud2ask.o: nud2ask.c
+nud2del.o: nud2del.c
+nud2dest.o: nud2dest.c
+nud2dump.o: nud2dump.c
+nud2load.o: nud2load.c
+nud2mdel.o: nud2mdel.c
+nud2mpar.o: nud2mpar.c
+nud2parm.o: nud2parm.c
+nud2pzld.o: nud2pzld.c
+nud2set.o: nud2set.c
+nud2temp.o: nud2temp.c
+nud2trun.o: nud2trun.c

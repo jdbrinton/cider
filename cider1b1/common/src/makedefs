@@ -1,0 +1,4 @@
+SUBDIRS		= lib bin
+TAGS_SUBDIRS	= $(SUBDIRS) include
+
+MSC_SPECIAL	= del $(MSC_ERRS)

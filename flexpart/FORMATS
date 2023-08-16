@@ -1,0 +1,61 @@
+Task File: describes the simulation problem
+---- Contents ----
+NumTasks: <total-num-tasks>
+<num-tasks>[<1|2>]: <task-size>
+... additional task lines ...
+
+---- Parameters ----
+<total-num-tasks> := Total Number of Tasks/Numerical Devices
+<num-tasks> := Number of devices of a particular size
+<1|2> := Dimensionality of the model for those tasks
+<task-size> := Number of equations needed to model these devices
+
+---- Example: Task file for GMAMP Benchmark
+NumTasks: 5
+3[2]: 1081
+2[2]: 2664
+
+****************************************************************************
+Architecture File: parameters of the compute nodes
+---- Contents ----
+Mflops: <megaflops>
+Mbytes: <megabytes>
+
+---- Parameters ----
+<megaflops> := Estimated compute speed of a node
+<megabytes> := Number of megabytes of physical memory per node
+
+---- Example: Speed/Memory of UCB CADgroup DS5000/125's.
+Mflops: 0.6
+Mbytes: 32
+
+****************************************************************************
+Group File:  group and level structure of the parallel machine
+-----------
+NumNodes: <num-nodes>
+NumGroups: <num-groups>
+LevelSizes: <level-size-list>
+G[<group-instance-level>][<group-instance-size>]{<group-member-list>}
+... additional group lines ...
+
+---- Parameters ----
+<num-nodes> := Total number of compute nodes in the machine
+<num-groups> := Total number of groups that are used to subdivide machine
+<level-size-list> := Number of groups at each level, one entry for each level
+<group-instance-level> := Level number for this group
+<group-instance-size> := Number of compute nodes in group
+<group-member-list> := Node ID's of group members, separated by commas
+    Each node ID should appear in exactly one group at each level.
+
+---- Example: Groups for 4-node hypercube
+NumNodes:   4
+NumGroups:  7
+NumLevels:  3
+LevelSizes: 4 2 1
+G[0][1]{0}
+G[0][1]{1}
+G[0][1]{2}
+G[0][1]{3}
+G[1][2]{0,1}
+G[1][2]{2,3}
+G[2][4]{0,1,2,3}

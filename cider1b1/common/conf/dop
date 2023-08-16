@@ -1,0 +1,11 @@
+# UCB Local site definitions
+
+OBJECTIVE	= dopcider
+
+CIDER_DIR	= /users/dop
+CIDER_LIB_DIR	= $(CIDER_DIR)/lib/cider-lib
+CIDER_EXEC_DIR	= $(CIDER_DIR)/bin
+
+S_CIDER_DIR	= ~dop
+S_CIDER_LIB_DIR	= $(S_CIDER_DIR)/cider-lib
+S_CIDER_EXEC_DIR= $(S_CIDER_DIR)/bin

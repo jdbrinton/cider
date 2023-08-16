@@ -1,0 +1,61 @@
+/* $Header: /home/harrison/c/tcgmsg/ipcv4.0/RCS/brdcst.c.old,v 1.1 91/12/06 17:26:11 harrison Exp Locker: harrison $ */
+
+#include "sndrcv.h"
+
+void BRDCST_(type, buf, lenbuf, originator)
+     long *type;
+     char *buf;
+     long *lenbuf;
+     long *originator;
+/*
+  broadcast buffer to all other processes from process originator
+  ... all processes call this routine specifying the same
+  orginating process
+
+  Renumber processes so that originator is always 0. Then do the
+  standard broadcast on a hypercube
+
+  a) 0->1
+  b) 0->2, 1->3
+  c) 0->4, 1->5, 2->6, 3->7
+  d) 0->8, 1->9, 2->10, 3->11, 4->12, 5->13, 6->14, 7->19
+  ...
+*/
+{
+
+#define   MAP(ID) ((long) ((ID + nproc - *originator) % nproc))
+#define UNMAP(ID) ((long) ((ID         + *originator) % nproc))
+
+  long nproc = NNODES_();
+  long mme = NODEID_();
+  long me = MAP(mme);
+  long lo = 1;
+  long sync = 1;
+  long everyone = -1;
+  long id, lenmes, from;
+#ifdef IPSC
+  long async = 0;
+#else
+  long async = 1;
+#endif
+
+  while (lo < nproc) {
+    if (me < lo) {
+      id = me + lo;
+      if (id < nproc) {
+	id = UNMAP(id);
+	SND_(type, buf, lenbuf, &id, &async);
+      }
+    }
+    else if (me < 2*lo) {
+      id = UNMAP(me - lo);
+      RCV_(type, buf, lenbuf, &lenmes, &id, &from, &sync);
+    }
+
+    lo *= 2;
+  }
+  
+  if (async == 0)   /* If sent messages async need to wait */
+    WAITCOM_(&everyone);
+}
+

@@ -1,0 +1,35 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= accuracy.c bernoull.c database.c devprint.c erfc.c \
+		  geominfo.c globals.c integset.c integuse.c limit.c \
+		  logfile.c mater.c misc.c mobil.c norm.c recomb.c strmatch.c \
+		  suprem.c suprmitf.c 
+
+COBJS		= accuracy.o bernoull.o database.o devprint.o erfc.o \
+		  geominfo.o globals.o integset.o integuse.o limit.o \
+		  logfile.o mater.o misc.o mobil.o norm.o recomb.o strmatch.o \
+		  suprem.o suprmitf.o 
+
+LIBRARY		= support
+LIB_TARGET	= $(OBJLIB_DIR)/$(LIBRARY).a
+accuracy.o: accuracy.c
+bernoull.o: bernoull.c
+database.o: database.c
+devprint.o: devprint.c
+erfc.o: erfc.c
+geominfo.o: geominfo.c
+globals.o: globals.c
+integset.o: integset.c
+integuse.o: integuse.c
+limit.o: limit.c
+logfile.o: logfile.c
+mater.o: mater.c
+misc.o: misc.c
+mobil.o: mobil.c
+norm.o: norm.c
+recomb.o: recomb.c
+strmatch.o: strmatch.c
+suprem.o: suprem.c
+suprmitf.o: suprmitf.c

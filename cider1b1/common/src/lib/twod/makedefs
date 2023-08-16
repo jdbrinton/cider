@@ -1,0 +1,40 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= twoadmit.c twoaval.c twocond.c twocont.c twocurr.c \
+		  twodest.c twodopng.c twoelect.c twofield.c twomesh.c \
+		  twomobdv.c twomobfn.c twomobil.c twoncont.c twopcont.c \
+		  twopoiss.c twoprint.c twoproj.c tworead.c twosetbc.c \
+		  twosetup.c twosolve.c 
+
+COBJS		= twoadmit.o twoaval.o twocond.o twocont.o twocurr.o \
+		  twodest.o twodopng.o twoelect.o twofield.o twomesh.o \
+		  twomobdv.o twomobfn.o twomobil.o twoncont.o twopcont.o \
+		  twopoiss.o twoprint.o twoproj.o tworead.o twosetbc.o \
+		  twosetup.o twosolve.o 
+
+LIBRARY		= twod
+LIB_TARGET	= $(OBJLIB_DIR)/$(LIBRARY).a
+twoadmit.o: twoadmit.c
+twoaval.o: twoaval.c
+twocond.o: twocond.c
+twocont.o: twocont.c
+twocurr.o: twocurr.c
+twodest.o: twodest.c
+twodopng.o: twodopng.c
+twoelect.o: twoelect.c
+twofield.o: twofield.c
+twomesh.o: twomesh.c
+twomobdv.o: twomobdv.c
+twomobfn.o: twomobfn.c
+twomobil.o: twomobil.c
+twoncont.o: twoncont.c
+twopcont.o: twopcont.c
+twopoiss.o: twopoiss.c
+twoprint.o: twoprint.c
+twoproj.o: twoproj.c
+tworead.o: tworead.c
+twosetbc.o: twosetbc.c
+twosetup.o: twosetup.c
+twosolve.o: twosolve.c

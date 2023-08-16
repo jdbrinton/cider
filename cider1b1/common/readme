@@ -1,0 +1,88 @@
+								March, 1994
+CIDER1b.1 Installation Notes
+-------------------------
+  Follow the instructions for installing SPICE3F2 found in the spice/common
+  directory of this distribution.  The instructions are in the readme file.
+
+  Once you have installed SPICE, you should be somewhat familiar with the
+  installation process.  The same scripts are used to build the CIDER libraries
+  of the distribution.  Configure the conf/defaults file to correspond
+  to your system. (Diffs between the original and modified SPICE defaults files
+  and the original SPICE and CIDER files should help in modifying the CIDER
+  default file.)  You will also need to provide system-specific exception
+  files (e.g. a 'mips' file), just as in SPICE.
+  
+  Build the CIDER source from cider/common using:
+    util/build <system> 
+
+  Install the CIDER executable and help file using:
+    util/build <system> install
+
+  By default the CIDER executable is placed in cider/<system>/bin, and
+  the help file is placed in the SPICE help directory.
+  If you are confident that the installation will take place without error,
+  you can both build and install using only the second command above.
+
+  The parallel version of CIDER is built by appending the "parallel"
+  configuration file to the above commands, i.e.:
+    util/build <system> install parallel
+
+  On some systems, the "parallel" file conflicts with the "system" file.
+  To compile for parallel, you will have to manually merge the two to
+  create a specific "system-parallel" combination file before starting
+  the build process.
+
+  The serial version of CIDER has been successfully compiled, installed
+  and run on the following systems:
+	Ultrix 4, MIPS 
+	OSF 1.3, DEC Alpha
+
+  The parallel version of CIDER has been compiled and run on a network
+  of Ultrix 4/ MIPS workstations.  A previous version, similar but not
+  identical to the current version, has also been run successfully on a
+  network of SUN4 machines, including some SparcStation 10's.
+
+  In the past, serial-version CIDER has been run successfully on these systems:
+	SunOS 4, Sun4
+	HP-UX 8.0, 9000/700
+	AIX V3, RS/6000
+	Unix SVR3, IPSC/860 node (must be installed manually.)
+
+  A good rule of thumb is that if SPICE3 can be ported to the machine,
+  then CIDER can be ported as well with little additional difficulty.
+  However, there are two major exceptions to this:
+    1.  SPICE3 runs on PC's and Macintoshes.  A port to an MSDOS PC is
+    probably infeasible due to memory limitations.  Porting to a Windows PC
+    or a Macintosh may be possible, but the level of difficulty of doing
+    this is unknown.
+    2.  Compilers that demand the ANSI C function prototypes will not compile
+    properly.  Prototypes for most of the CIDER functions would need to be
+    generated.
+
+Running CIDER
+-------------
+  The serial version of CIDER has the same set of command-line arguments as
+  SPICE3.  The parallel version must be invoked specially however.
+  A script has been written that automatically invokes the parallel version
+  using the "parallel" command from the TCGMSG distribution.
+  The syntax is either:
+    qcider -p <num-nodes> <circuit-filename> <suffix>
+  or:
+    qcider <circuit-filename.ext> <suffix>
+
+  In the first case, thq "qcider" script creates a process-group (".p") file
+  containing num-nodes machines to run on.  A list of available machines,
+  one-per-line, must either be available in the current working directory in
+  a file called "cpuservers" or in a location pointed to by the CPUSERVERS
+  environment variable.  Qcider will scan the available machines to identify
+  those with the lightest loads, and then set up a ".p" file using those nodes.
+  The file is called circuit-filename.suffix.p (the extension is removed).
+  On subsequent calls to qcider this file can be reused by omitting the -p
+  option to qcider. However, care should be taken to avoid using old .p files
+  that correspond to machines that have become more active in the interim.
+  Qcider will automatically store the output in "circuit-filename.suffix.raw",
+  diagnostic output from all the machines in "circuit-filename.suffix.sum",
+  and error messages in "circuit-filename.suffix.err".
+    The parallel version is intended for batch use only, and the behavior if
+  interactive use is attempted is undefined. The qcider script avoids this
+  problem by always running in batch mode.

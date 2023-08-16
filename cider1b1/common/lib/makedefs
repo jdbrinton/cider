@@ -1,0 +1,9 @@
+
+INSTALL_TARGETS	= $(CIDER_LIB_DIR)/helpdir/cider.txt			      \
+		  $(CIDER_LIB_DIR)/helpdir/cider.idx	\
+		  $(CIDER_LIB_DIR)/scripts/devaxis	\
+		  $(CIDER_LIB_DIR)/scripts/devload
+
+ALL_INSTALL_DIRS = $(CIDER_LIB_DIR) $(CIDER_LIB_DIR)/helpdir
+
+INSTALL_SPECIAL = directories

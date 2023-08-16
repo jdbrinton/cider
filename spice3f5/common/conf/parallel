@@ -1,0 +1,3 @@
+# Groups of workstations in parallel
+SYS_CFLAGS	= -DPARALLEL_ARCH
+LIBTCGMSG	= $(TCGMSG_DIR)/lib/libtcgmsg.a

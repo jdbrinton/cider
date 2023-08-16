@@ -1,0 +1,4 @@
+The file "cider.txt" is meant to contain descriptions of CIDER usable
+by the on-line help system of SPICE.  It is currently implemented only
+in a skeletal form.  For more extensive information on the use of CIDER,
+consult the User's Manual.

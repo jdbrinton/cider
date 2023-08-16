@@ -1,0 +1,4 @@
+# For the cider makefile in the octtools distribution
+CIDER_DIR	= $(OCTTOOLS)
+CIDER_LIB_DIR	= $(OCTTOOLS)/lib/spice3
+S_CIDER_LIB_DIR	= $(OCTTOOLS)/lib/spice3

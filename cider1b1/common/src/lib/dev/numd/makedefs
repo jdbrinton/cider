@@ -1,0 +1,32 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= numd.c numdacld.c numdask.c numddel.c numddest.c numddump.c \
+		  numdload.c numdmdel.c numdmpar.c numdparm.c \
+		  numdpzld.c numdset.c numdtemp.c numdtrun.c 
+
+COBJS		= numd.o numdacld.o numdask.o numddel.o numddest.o numddump.o \
+		  numdload.o numdmdel.o numdmpar.o numdparm.o \
+		  numdpzld.o numdset.o numdtemp.o numdtrun.o 
+
+MODULE		= numd
+LIBRARY		= dev
+MODULE_TARGET	= $(OBJLIB_DIR)/$(MODULE)
+
+NUMBER		= dev
+
+numd.o: numd.c
+numdacld.o: numdacld.c
+numdask.o: numdask.c
+numddel.o: numddel.c
+numddest.o: numddest.c
+numddump.o: numddump.c
+numdload.o: numdload.c
+numdmdel.o: numdmdel.c
+numdmpar.o: numdmpar.c
+numdparm.o: numdparm.c
+numdpzld.o: numdpzld.c
+numdset.o: numdset.c
+numdtemp.o: numdtemp.c
+numdtrun.o: numdtrun.c

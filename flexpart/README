@@ -1,0 +1,25 @@
+Experimental Simulated Annealer
+-------------------------------
+This is the source code for the simulated annealer described in Chapter 4
+of "Design-Oriented Mixed-Level Circuit and Device Simulation" by David
+Gates, UCB ERL Memo M93/51.  This program is very experimental, and does not
+have the robustness of production code.  It is provided in this distribution
+in an unsupported, as-is basis.  The file "FORMATS" contains short descriptions
+of the formats used for auxiliary data files that describe the problem
+and the parallel machine structure.  
+
+The executable is called 'flexpart' (short for FLEXible PARTitioner).  It takes
+4 (or 5) parameters:
+1. The number of annealing trials to make.  Each trial may reach a different
+   solution, since the algorithm is random.  The best solution is reported
+   after all trials have been completed.
+2. An optional filename for the machine-architecture file.
+3. The name of the file containing the group and level structure of the
+   parallel machine.
+4. The name of the file containing a highly simplified description of
+   the problem being distributed.
+5. An efficiency between 0.0 and 1.0 representing the best execution
+   efficiency that can be achieved when a task is assigned to a group
+   containing more than one processor.  A value of 1.0 indicates that the
+   problem can potentially achieve perfect speedup.  A typical value
+   would be between 0.7 and 0.8.

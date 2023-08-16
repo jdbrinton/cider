@@ -1,0 +1,7 @@
+NumNodes:   2
+NumGroups:  3
+NumLevels:  2
+LevelSizes: 2 1
+G[0][1]{0}
+G[0][1]{1}
+G[1][2]{0,1}

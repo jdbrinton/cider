@@ -1,0 +1,16 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+SUBDIRS		= numd numd2 nbjt nbjt2 numos
+MSC_REC_SUBDIRS	= numd numd2 nbjt nbjt2 numos
+
+LIBRARY_NRL	= dev
+LIB_TARGET	= $(OBJLIB_DIR)/$(LIBRARY_NRL).a
+
+PRE_PURPOSE	= check_synth
+
+MODULE		= local
+RANLIB_TARGET	= $(SCRAP_DIR)/.synth_ranlib
+LIBRARY_HACK	= $(LIB_TARGET)
+NUMBER		= 1

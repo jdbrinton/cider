@@ -1,0 +1,57 @@
+								March, 1994
+Welcome to the Cider source code distribution
+---------------------------------------------
+    This is the source code for the mixed-level circuit and device simulator
+Cider.  Four directories are provided:
+  1. The source code to Berkeley Spice3f.5, a bug-fix and upgrade to the last
+     version of Spice3 distributed by Berkeley.  The upgrade primarily adds
+     features to support distributed processing in Cider.
+  2. The source code to Cider1b.1 that contains 1d and 2d device simulators and
+     interface routines used to couple to Spice3. The main routine for
+     the Cider executable is also found here.
+  3. The source code to the TCGMSG distributed message-passing library used
+     for portable communication in the parallel version of Cider.  TCGMSG
+     was developed by the Theoretical Computing Group at Argonne National
+     laboratories, and is therefore in the public domain.  UC Berkeley does
+     not hold the copyright to this code.
+  4. An experimental simulated-annealing-based task partitioner that was
+     intended to provide better load balancing in the parallel-version of
+     Cider.  This code is not integrated with the rest of the distribution
+     and must be installed manually.
+
+Building and Installing Cider
+-----------------------------
+To build the serial version of Cider, first go to the directory
+spice/common and follow the instructions for building Spice3 in the readme file
+located there. Then, go to the directory cider/common and build the Cider
+executable.
+    If you want to build the parallel version of Cider, you'll first need to
+install TCGMSG in the tcgmsg/common directory.  After TCGMSG successfully
+compiles, run "install.sh <system>" where "system" is the same name of the
+architecture you'll be using for Cider.  In order to avoid mixing the wrong
+libraries you'll need different system names for the serial and parallel
+versions. A suggested course of action is to append the letter p to the
+base system name to come up with the parallel version name. For examples,
+a DECstation 5000 using the MIPS R3000 CPU might call the serial version
+'mips' and the parallel version 'pmips' (or perhaps 'dmips' for distributed).
+    Once TCGMSG is installed, follow the instructions in the Spice3 and Cider
+directories for installing the parallel versions.
+
+Disclaimer
+----------
+    Please read the disclaimer found in this same directory.  It provides
+information on your rights with respect to copyright and warranty.
+
+Technical Problems
+------------------
+    Please report any bugs or problems to either:
+
+    (E-MAIL)
+	cider-bugs@ic.Berkeley.EDU
+
+    (US MAIL)
+	EECS/ERL Industrial Support Office
+	ATTN: Cider Technical Question
+	205 Cory Hall
+	U.C. Berkeley
+	Berkeley, CA 94720

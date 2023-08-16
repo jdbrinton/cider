@@ -1,0 +1,32 @@
+###########
+# Copyright 1991 Regents of the University of California.  All rights reserved.
+###########
+
+CFILES		= numm.c nummacld.c nummask.c nummdel.c nummdest.c nummdump.c \
+		  nummload.c nummmdel.c nummmpar.c nummparm.c \
+		  nummpzld.c nummset.c nummtemp.c nummtrun.c 
+
+COBJS		= numm.o nummacld.o nummask.o nummdel.o nummdest.o nummdump.o \
+		  nummload.o nummmdel.o nummmpar.o nummparm.o \
+		  nummpzld.o nummset.o nummtemp.o nummtrun.o 
+
+MODULE		= numos
+LIBRARY		= dev
+MODULE_TARGET	= $(OBJLIB_DIR)/$(MODULE)
+
+NUMBER		= dev
+
+numm.o: numm.c
+nummacld.o: nummacld.c
+nummask.o: nummask.c
+nummdel.o: nummdel.c
+nummdest.o: nummdest.c
+nummdump.o: nummdump.c
+nummload.o: nummload.c
+nummmdel.o: nummmdel.c
+nummmpar.o: nummmpar.c
+nummparm.o: nummparm.c
+nummpzld.o: nummpzld.c
+nummset.o: nummset.c
+nummtemp.o: nummtemp.c
+nummtrun.o: nummtrun.c

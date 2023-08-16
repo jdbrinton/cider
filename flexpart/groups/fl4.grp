@@ -1,0 +1,8 @@
+NumNodes:   4
+NumGroups:  4
+NumLevels:  1
+LevelSizes: 4
+G[0][1]{0}
+G[0][1]{1}
+G[0][1]{2}
+G[0][1]{3}

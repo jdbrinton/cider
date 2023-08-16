@@ -1,0 +1,3 @@
+The helpdir directory contains an incomplete on-line help file for CIDER.
+It gets installed in the same directory as the SPICE3 on-line help files
+during the normal 'install' process.
